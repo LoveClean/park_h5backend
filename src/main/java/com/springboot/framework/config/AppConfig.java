@@ -37,6 +37,11 @@ public class AppConfig {
      */
     private String env;
 
+    /**
+     * 腾讯地图key
+     */
+    private String tencentMapKey;
+
 
     public String getAppName() {
         return appName;
@@ -76,5 +81,13 @@ public class AppConfig {
 
     public void setEnv(String env) {
         this.env = env;
+    }
+
+    public String getTencentMapKey() {
+        return tencentMapKey;
+    }
+
+    public void setTencentMapKey(String tencentMapKey) {
+        this.tencentMapKey = tencentMapKey;
     }
 }

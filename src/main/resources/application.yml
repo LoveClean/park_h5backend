@@ -12,6 +12,8 @@ app:
   allow-cross-domain-access: true
   # 开发dev 测试test  生产 master
   env: dev
+  # 腾讯地图key
+  tencentMapKey: WX7BZ-TYPKQ-GTJ5Z-GJUIQ-G66GF-CSFGQ
 
 wechat:
   mpAppId: wx17b1cc5b8a29ad16
@@ -39,7 +41,7 @@ spring:
     time-zone: GMT+8
   redis:
     database: 0
-#    host: 198.19.56.204
+    #    host: 198.19.56.204
     host: localhost
     port: 6379
     password:
