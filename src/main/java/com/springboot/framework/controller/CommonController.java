@@ -41,7 +41,19 @@ public class CommonController {
     private RedisService redisService;
 
     /**
-     * 根据地址名称获取经纬度
+     * IP定位
+     */
+    @ACS(allowAnonymous = true)
+    @ApiOperation(value = "IP定位", notes = "通过终端设备IP地址获取其当前所在地理位置，精确到市级，常用于显示当地城市天气预报、初始化用户城市等非精确定位场景。")
+    @GetMapping(value = "locationByIp")
+    public JSONObject locationByIp() {
+        String url = "https://apis.map.qq.com/ws/location/v1/ip";
+        String jsonStrToken = ToolsUtil.sendGet(url, "key=" + appConfig.getTencentMapKey());
+        return JSON.parseObject(jsonStrToken);
+    }
+
+    /**
+     * 逆地址解析（坐标位置描述）
      */
     @ACS(allowAnonymous = true)
     @ApiOperation(value = "逆地址解析（坐标位置描述）", notes = "本接口提供由坐标到坐标所在位置的文字描述的转换。输入坐标返回地理位置信息和附近poi列表。目前应用于物流、出行、O2O、社交等场景。服务响应速度快、稳定，支撑亿级调用。\n" +
@@ -56,7 +68,7 @@ public class CommonController {
     }
 
     /**
-     * 根据地址名称获取经纬度
+     * 地址解析（地址转坐标）
      */
     @ACS(allowAnonymous = true)
     @ApiOperation(value = "地址解析（地址转坐标）", notes = "本接口提供由地址描述到所述位置坐标的转换，与逆地址解析的过程正好相反。")
