@@ -5,6 +5,7 @@ import com.springboot.framework.controller.response.PageResponseBean;
 import com.springboot.framework.dao.entity.AppDetail;
 import com.springboot.framework.service.AppService;
 import com.springboot.framework.util.ResponseEntity;
+import com.springboot.framework.vo.AppDetailForContactVO;
 import com.springboot.framework.vo.AppDetailVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -44,7 +45,7 @@ public class AppController extends BaseController {
     @ACS(allowAnonymous = true)
     @ApiOperation(value = "查看应用详情", notes = "查看应用详情")
     @GetMapping(value = "selectByPrimaryKeyForDetail")
-    public ResponseEntity<AppDetail> selectByPrimaryKeyForDetail(@RequestParam Integer appId, @RequestParam Integer parkId) {
+    public ResponseEntity<AppDetailForContactVO> selectByPrimaryKeyForDetail(@RequestParam Integer appId, @RequestParam Integer parkId) {
         return appService.selectByPrimaryKeyForDetail(appId, parkId);
     }
 }

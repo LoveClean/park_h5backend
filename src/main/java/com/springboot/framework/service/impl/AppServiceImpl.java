@@ -1,5 +1,6 @@
 package com.springboot.framework.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Lists;
@@ -12,6 +13,7 @@ import com.springboot.framework.dao.mapper.ConnectionMapper;
 import com.springboot.framework.service.AppService;
 import com.springboot.framework.util.ResponseEntity;
 import com.springboot.framework.util.ResponseEntityUtil;
+import com.springboot.framework.vo.AppDetailForContactVO;
 import com.springboot.framework.vo.AppDetailVO;
 import org.springframework.stereotype.Service;
 
@@ -67,7 +69,9 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
-    public ResponseEntity<AppDetail> selectByPrimaryKeyForDetail(Integer appId, Integer parkId) {
-        return ResponseEntityUtil.success(appDetailMapper.selectByAppIdAndParkId(appId, parkId));
+    public ResponseEntity<AppDetailForContactVO> selectByPrimaryKeyForDetail(Integer appId, Integer parkId) {
+        AppDetail appDetail = appDetailMapper.selectByAppIdAndParkId(appId, parkId);
+        AppDetailForContactVO appDetailForContactVO = new AppDetailForContactVO(appDetail, JSON.parseArray(appDetail.getContact()));
+        return ResponseEntityUtil.success(appDetailForContactVO);
     }
 }
