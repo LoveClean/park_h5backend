@@ -1,13 +1,14 @@
 package com.springboot.framework.dao.mapper;
 
 import com.springboot.framework.dao.entity.Park;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
 public interface ParkMapper {
-    @Update("UPDATE tb_park SET status = -1, update_by = #{updateBy} WHERE id = #{id}")
-    int deleteByPrimaryKey(@Param("id") Integer id, @Param("updateBy") String updateBy);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Park record);
 

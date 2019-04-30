@@ -1,5 +1,6 @@
 package com.springboot.framework.dao.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Park {
@@ -13,6 +14,12 @@ public class Park {
 
     private String address;
 
+    private BigDecimal longitude;
+
+    private BigDecimal latitude;
+
+    private String introduction;
+
     private Byte sort;
 
     private String createBy;
@@ -24,18 +31,6 @@ public class Park {
     private Date updateDate;
 
     private Byte status;
-
-    public Park() {
-    }
-
-    public Park(String name, String logo, String location, String address, Byte sort, String createBy) {
-        this.name = name;
-        this.logo = logo;
-        this.location = location;
-        this.address = address;
-        this.sort = sort;
-        this.createBy = createBy;
-    }
 
     public Integer getId() {
         return id;
@@ -75,6 +70,30 @@ public class Park {
 
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction == null ? null : introduction.trim();
     }
 
     public Byte getSort() {
