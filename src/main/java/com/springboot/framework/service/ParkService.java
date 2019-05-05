@@ -5,6 +5,8 @@ import com.springboot.framework.dao.entity.Park;
 import com.springboot.framework.util.ResponseEntity;
 
 public interface ParkService {
+    ResponseEntity<Park> selectByPrimaryKey(Integer id);
+
     ResponseEntity<Park> selectByName(String name);
 
     PageResponseBean selectList(Integer pageNum, Integer pageSize);

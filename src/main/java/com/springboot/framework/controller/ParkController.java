@@ -19,6 +19,13 @@ public class ParkController extends BaseController {
     private ParkService parkService;
 
     @ACS(allowAnonymous = true)
+    @ApiOperation(value = "根据id查看", notes = "根据id查看")
+    @GetMapping(value = "selectByPrimaryKey")
+    public ResponseEntity<Park> selectByPrimaryKey(@RequestParam Integer id) {
+        return parkService.selectByPrimaryKey(id);
+    }
+
+    @ACS(allowAnonymous = true)
     @ApiOperation(value = "根据名称查看", notes = "根据名称查看")
     @GetMapping(value = "selectByName")
     public ResponseEntity<Park> selectByName(@RequestParam String name) {

@@ -26,6 +26,11 @@ public class ParkServiceImpl implements ParkService {
     private AreaMapper areaMapper;
 
     @Override
+    public ResponseEntity<Park> selectByPrimaryKey(Integer id) {
+        return ResponseEntityUtil.success(parkMapper.selectByPrimaryKey(id));
+    }
+
+    @Override
     public ResponseEntity<Park> selectByName(String name) {
         return ResponseEntityUtil.success(parkMapper.selectByName(name));
     }
