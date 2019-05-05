@@ -17,10 +17,10 @@ public interface AppMapper {
 
     App selectByPrimaryKey(Integer id);
 
-    @Select("SELECT * FROM tb_app WHERE status != -1 ORDER BY create_date DESC")
+    @Select("SELECT * FROM tb_app WHERE status = 1 ORDER BY create_date DESC")
     List<App> selectList();
 
-//    @Select("SELECT * FROM tb_app WHERE status != -1 AND  ORDER BY create_date DESC")
+//    @Select("SELECT * FROM tb_app WHERE status = 1 AND  ORDER BY create_date DESC")
 //    List<App> selectListByParkId(Integer parkId);
 
     int updateByPrimaryKeySelective(App record);

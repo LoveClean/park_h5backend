@@ -15,7 +15,7 @@ public interface HouseMapper {
 
     House selectByPrimaryKey(Integer id);
 
-    @Select("SELECT * FROM tb_house WHERE status != -1 AND park_id = #{parkId} ORDER BY create_date DESC")
+    @Select("SELECT * FROM tb_house WHERE status = 1 AND park_id = #{parkId} ORDER BY create_date DESC")
     List<House> selectListByParkId(@Param("parkId")Integer parkId);
 
     int updateByPrimaryKeySelective(House record);

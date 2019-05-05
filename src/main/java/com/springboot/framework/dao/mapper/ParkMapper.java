@@ -3,7 +3,6 @@ package com.springboot.framework.dao.mapper;
 import com.springboot.framework.dao.entity.Park;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -19,10 +18,10 @@ public interface ParkMapper {
     @Select("SELECT * FROM tb_park WHERE status = 1 AND name = #{name}")
     Park selectByName(@Param("name") String name);
 
-    @Select("SELECT * FROM tb_park WHERE status != -1 ORDER BY create_date DESC")
+    @Select("SELECT * FROM tb_park WHERE status = 1 ORDER BY create_date DESC")
     List<Park> selectList();
 
-    @Select("SELECT * FROM tb_park WHERE status != -1 AND location = #{location} ORDER BY create_date DESC")
+    @Select("SELECT * FROM tb_park WHERE status = 1 AND location = #{location} ORDER BY create_date DESC")
     List<Park> selectListByLocation(@Param("location") String location);
 
     int updateByPrimaryKeySelective(Park record);
