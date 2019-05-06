@@ -15,11 +15,13 @@ public class HouseVO {
     private String location;
     private Integer acreage;
     private Integer floor;
-    private Byte orientation;
-    private Byte finish;
-    private Byte elevator;
-    private Byte tenancyTerm;
-    private Byte registeredCompany;
+
+    private String orientation;
+    private String finish;
+    private String elevator;
+    private String tenancyTerm;
+    private String registeredCompany;
+
     private BigDecimal usageRate;
     private BigDecimal unitPrice;
     private BigDecimal price;
@@ -48,11 +50,76 @@ public class HouseVO {
         this.location = house.getLocation();
         this.acreage = house.getAcreage();
         this.floor = house.getFloor();
-        this.orientation = house.getOrientation();
-        this.finish = house.getFinish();
-        this.elevator = house.getElevator();
-        this.tenancyTerm = house.getTenancyTerm();
-        this.registeredCompany = house.getRegisteredCompany();
+        switch (house.getOrientation()) {
+            case 1:
+                this.orientation = "北";
+                break;
+            case 2:
+                this.orientation = "东北";
+                break;
+            case 3:
+                this.orientation = "东";
+                break;
+            case 4:
+                this.orientation = "东南";
+                break;
+            case 5:
+                this.orientation = "南";
+                break;
+            case 6:
+                this.orientation = "西南";
+                break;
+            case 7:
+                this.orientation = "西";
+                break;
+            case 8:
+                this.orientation = "西北";
+                break;
+        }
+        switch (house.getFinish()) {
+            case 1:
+                this.finish = "毛胚";
+                break;
+            case 2:
+                this.finish = "简装";
+                break;
+            case 3:
+                this.finish = "精装";
+                break;
+        }
+        switch (house.getElevator()) {
+            case 1:
+                this.elevator = "有";
+                break;
+            case 2:
+                this.elevator = "无";
+                break;
+        }
+        switch (house.getTenancyTerm()) {
+            case 1:
+                this.tenancyTerm = "月租";
+                break;
+            case 2:
+                this.tenancyTerm = "三个月";
+                break;
+            case 3:
+                this.tenancyTerm = "半年";
+                break;
+            case 4:
+                this.tenancyTerm = "一年";
+                break;
+            case 5:
+                this.tenancyTerm = "两年及以上";
+                break;
+        }
+        switch (house.getRegisteredCompany()) {
+            case 1:
+                this.registeredCompany = "是";
+                break;
+            case 2:
+                this.registeredCompany = "否";
+                break;
+        }
         this.usageRate = house.getUsageRate();
         this.unitPrice = house.getUnitPrice();
         this.price = house.getPrice();
@@ -126,43 +193,43 @@ public class HouseVO {
         this.floor = floor;
     }
 
-    public Byte getOrientation() {
+    public String getOrientation() {
         return orientation;
     }
 
-    public void setOrientation(Byte orientation) {
+    public void setOrientation(String orientation) {
         this.orientation = orientation;
     }
 
-    public Byte getFinish() {
+    public String getFinish() {
         return finish;
     }
 
-    public void setFinish(Byte finish) {
+    public void setFinish(String finish) {
         this.finish = finish;
     }
 
-    public Byte getElevator() {
+    public String getElevator() {
         return elevator;
     }
 
-    public void setElevator(Byte elevator) {
+    public void setElevator(String elevator) {
         this.elevator = elevator;
     }
 
-    public Byte getTenancyTerm() {
+    public String getTenancyTerm() {
         return tenancyTerm;
     }
 
-    public void setTenancyTerm(Byte tenancyTerm) {
+    public void setTenancyTerm(String tenancyTerm) {
         this.tenancyTerm = tenancyTerm;
     }
 
-    public Byte getRegisteredCompany() {
+    public String getRegisteredCompany() {
         return registeredCompany;
     }
 
-    public void setRegisteredCompany(Byte registeredCompany) {
+    public void setRegisteredCompany(String registeredCompany) {
         this.registeredCompany = registeredCompany;
     }
 
