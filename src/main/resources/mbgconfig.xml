@@ -45,34 +45,10 @@
 
         <!-- 数据表 -->
 
-        <table tableName="tb_enterprise" domainObjectName="Enterprise"
+        <table tableName="tb_slideshow" domainObjectName="Slideshow"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false"></table>
-<!--        <table tableName="tb_app" domainObjectName="App"-->
-<!--               enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false"></table>-->
-<!--        <table tableName="tb_app_detail" domainObjectName="AppDetail"-->
-<!--               enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false"></table>-->
-<!--        <table tableName="tb_connection" domainObjectName="Connection"-->
-<!--               enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false"></table>-->
-<!--        <table tableName="tb_area" domainObjectName="Area"-->
-<!--               enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false"></table>-->
-<!--        <table tableName="tb_house" domainObjectName="House"-->
-<!--               enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false"></table>-->
-<!--        <table tableName="tb_house_picture" domainObjectName="HousePicture"-->
-<!--               enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
-<!--               selectByExampleQueryId="false"></table>-->
 
     </context>
 </generatorConfiguration>
