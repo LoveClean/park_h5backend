@@ -1,6 +1,11 @@
 package com.springboot.framework.dao.entity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "tb_connection")
 public class Connection {
+    @Id
     private Integer id;
 
     private Integer parkId;

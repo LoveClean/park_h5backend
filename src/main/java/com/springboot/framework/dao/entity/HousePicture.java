@@ -1,6 +1,11 @@
 package com.springboot.framework.dao.entity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "tb_house_picture")
 public class HousePicture {
+    @Id
     private Integer id;
 
     private String picture;

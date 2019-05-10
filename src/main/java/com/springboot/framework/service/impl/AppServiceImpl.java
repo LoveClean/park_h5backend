@@ -11,6 +11,7 @@ import com.springboot.framework.dao.mapper.AppDetailMapper;
 import com.springboot.framework.dao.mapper.AppMapper;
 import com.springboot.framework.dao.mapper.ConnectionMapper;
 import com.springboot.framework.service.AppService;
+import com.springboot.framework.util.PageUtil;
 import com.springboot.framework.util.ResponseEntity;
 import com.springboot.framework.util.ResponseEntityUtil;
 import com.springboot.framework.vo.AppDetailForContactVO;
@@ -41,12 +42,7 @@ public class AppServiceImpl implements AppService {
     public PageResponseBean selectList(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<App> appList = appMapper.selectList();
-        PageInfo pageInfo = new PageInfo(appList);
-        pageInfo.setList(appList);
-        PageResponseBean page = new PageResponseBean<App>(pageInfo);
-        page.setCode(0);
-        page.setHttpStatus(200);
-        return page;
+        return PageUtil.page(appList);
     }
 
     @Override
@@ -60,12 +56,7 @@ public class AppServiceImpl implements AppService {
                 appList.add(app);
             }
         }
-        PageInfo pageInfo = new PageInfo(appIdList);
-        pageInfo.setList(appList);
-        PageResponseBean page = new PageResponseBean<App>(pageInfo);
-        page.setCode(0);
-        page.setHttpStatus(200);
-        return page;
+        return PageUtil.page(appIdList, appList);
     }
 
     @Override

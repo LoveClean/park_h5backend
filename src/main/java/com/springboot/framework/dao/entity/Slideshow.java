@@ -1,8 +1,12 @@
 package com.springboot.framework.dao.entity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
+@Table(name = "tb_slideshow")
 public class Slideshow {
+    @Id
     private Integer id;
 
     private Integer informationId;

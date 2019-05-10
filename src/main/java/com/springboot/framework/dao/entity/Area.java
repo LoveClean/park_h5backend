@@ -1,6 +1,11 @@
 package com.springboot.framework.dao.entity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "tb_area")
 public class Area {
+    @Id
     private Integer id;
 
     private String areaCode;

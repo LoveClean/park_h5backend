@@ -1,9 +1,13 @@
 package com.springboot.framework.dao.entity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Table(name = "tb_house")
 public class House {
+    @Id
     private Integer id;
 
     private Integer parkId;

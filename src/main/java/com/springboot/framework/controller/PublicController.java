@@ -2,15 +2,14 @@ package com.springboot.framework.controller;
 
 import com.springboot.framework.annotation.ACS;
 import com.springboot.framework.controller.response.PageResponseBean;
+import com.springboot.framework.dao.entity.Information;
 import com.springboot.framework.service.PublicService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Api(tags = {"公共操作接口"}, produces = "application/json")
 @RestController
@@ -38,5 +37,12 @@ public class PublicController {
     @GetMapping(value = "listHouse")
     public PageResponseBean listHouse(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam Integer parkId) {
         return publicService.listHouse(pageNum, pageSize, parkId);
+    }
+
+    @ACS(allowAnonymous = true)
+    @ApiOperation(value = "资讯列表", notes = "资讯列表")
+    @GetMapping(value = "listInformation")
+    public PageResponseBean listInformation(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam Integer parkId) {
+        return publicService.listInformation(pageNum, pageSize, parkId);
     }
 }
