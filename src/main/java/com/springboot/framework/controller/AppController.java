@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@Api(description = "应用操作接口", produces = "application/json")
+@Api(tags = {"应用操作接口"}, produces = "application/json")
 @RestController
 @RequestMapping("/app/")
 public class AppController extends BaseController {

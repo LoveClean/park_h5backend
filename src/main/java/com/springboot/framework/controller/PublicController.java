@@ -2,14 +2,14 @@ package com.springboot.framework.controller;
 
 import com.springboot.framework.annotation.ACS;
 import com.springboot.framework.controller.response.PageResponseBean;
-import com.springboot.framework.dao.entity.Information;
 import com.springboot.framework.service.PublicService;
+import com.springboot.framework.util.ResponseEntity;
+import com.springboot.framework.vo.InformationVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Api(tags = {"公共操作接口"}, produces = "application/json")
 @RestController
@@ -44,5 +44,12 @@ public class PublicController {
     @GetMapping(value = "listInformation")
     public PageResponseBean listInformation(@RequestParam Integer pageNum, @RequestParam Integer pageSize, @RequestParam Integer parkId) {
         return publicService.listInformation(pageNum, pageSize, parkId);
+    }
+
+    @ACS(allowAnonymous = true)
+    @ApiOperation(value = "查看资讯详情", notes = "查看资讯详情")
+    @GetMapping(value = "selectInformation")
+    public ResponseEntity<InformationVO> selectInformation(@RequestParam Integer informationId) {
+        return publicService.selectInformation(informationId);
     }
 }

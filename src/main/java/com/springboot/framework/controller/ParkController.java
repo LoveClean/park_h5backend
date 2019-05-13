@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@Api(description = "园区操作接口", produces = "application/json")
+@Api(tags = {"园区操作接口"}, produces = "application/json")
 @RestController
 @RequestMapping("/park/")
 public class ParkController extends BaseController {

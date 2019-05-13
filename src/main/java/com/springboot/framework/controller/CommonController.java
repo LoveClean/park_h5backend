@@ -28,7 +28,7 @@ import java.util.Random;
  * @Description: 工具controller
  * @date 2019年3月26日
  */
-@Api(description = "公共模块", produces = "application/json")
+@Api(tags = {"公共模块"}, produces = "application/json")
 @RestController
 @RequestMapping("/common/")
 public class CommonController {

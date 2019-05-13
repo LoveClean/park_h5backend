@@ -22,7 +22,7 @@ import java.util.*;
  * Created by 廖师兄
  * 2017-07-03 01:20
  */
-@Api(description = "微信测试", produces = "application/json")
+@Api(tags = {"微信测试"}, produces = "application/json")
 @RestController
 @RequestMapping("/wechat/")
 public class WechatController{

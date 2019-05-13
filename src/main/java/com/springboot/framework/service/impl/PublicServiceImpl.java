@@ -7,7 +7,10 @@ import com.springboot.framework.dao.entity.*;
 import com.springboot.framework.dao.mapper.*;
 import com.springboot.framework.service.PublicService;
 import com.springboot.framework.util.PageUtil;
+import com.springboot.framework.util.ResponseEntity;
+import com.springboot.framework.util.ResponseEntityUtil;
 import com.springboot.framework.vo.HouseVO;
+import com.springboot.framework.vo.InformationVO;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -26,6 +29,9 @@ public class PublicServiceImpl implements PublicService {
     private HousePictureMapper housePictureMapper;
     @Resource
     private InformationMapper informationMapper;
+    @Resource
+    private InformationInfoMapper informationInfoMapper;
+
 
     @Override
     public PageResponseBean listSlideshow(Integer pageNum, Integer pageSize, Integer parkId) {
@@ -59,17 +65,16 @@ public class PublicServiceImpl implements PublicService {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(Information.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("parkId",parkId);
+        criteria.andEqualTo("parkId", parkId);
         List<Information> recordList = informationMapper.selectByExample(example);
         return PageUtil.page(recordList);
     }
 
     @Override
-    public List<Information> listInformation2(Integer pageNum, Integer pageSize, Integer parkId) {
-        Example example = new Example(Information.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("parkId",parkId);
-        List<Information> recordList = informationMapper.selectByExample(example);
-        return recordList;
+    public ResponseEntity<InformationVO> selectInformation(Integer informationId) {
+        Information information = informationMapper.selectByPrimaryKey(informationId);
+        InformationInfo informationInfo = informationInfoMapper.selectByPrimaryKey(informationId);
+        InformationVO informationVO = new InformationVO(information, informationInfo);
+        return ResponseEntityUtil.success(informationVO);
     }
 }

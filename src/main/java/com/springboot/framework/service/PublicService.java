@@ -1,9 +1,8 @@
 package com.springboot.framework.service;
 
 import com.springboot.framework.controller.response.PageResponseBean;
-import com.springboot.framework.dao.entity.Information;
-
-import java.util.List;
+import com.springboot.framework.util.ResponseEntity;
+import com.springboot.framework.vo.InformationVO;
 
 public interface PublicService {
     PageResponseBean listSlideshow(Integer pageNum, Integer pageSize, Integer parkId);
@@ -14,5 +13,5 @@ public interface PublicService {
 
     PageResponseBean listInformation(Integer pageNum, Integer pageSize, Integer parkId);
 
-    List<Information> listInformation2(Integer pageNum, Integer pageSize, Integer parkId);
+    ResponseEntity<InformationVO> selectInformation(Integer informationId);
 }
