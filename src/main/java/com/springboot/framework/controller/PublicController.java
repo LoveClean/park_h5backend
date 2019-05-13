@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@Api(tags = {"公共操作接口"}, produces = "application/json")
+@Api(tags = {"常用操作接口"}, produces = "application/json")
 @RestController
 @RequestMapping("/public/")
 public class PublicController {
