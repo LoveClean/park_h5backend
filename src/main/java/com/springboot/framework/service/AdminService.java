@@ -5,7 +5,7 @@ import com.springboot.framework.dao.entity.Admin;
 import com.springboot.framework.util.ResponseEntity;
 
 public interface AdminService {
-    ResponseEntity<Integer> deleteByPrimaryKey(Integer id, String updateBy);
+//    ResponseEntity<Integer> deleteByPrimaryKey(Integer id, String updateBy);
 
     ResponseEntity<Integer> insertSelective(Admin record);
 
@@ -16,8 +16,6 @@ public interface AdminService {
     PageResponseBean selectList(Integer pageNum, Integer pageSize);
 
     PageResponseBean selectListByPhone(String phone, Integer pageNum, Integer pageSize);
-
-    ResponseEntity<Integer> selectCount();
 
     ResponseEntity<Integer> updateByPrimaryKeySelective(Admin record);
 

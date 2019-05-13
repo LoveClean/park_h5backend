@@ -18,10 +18,10 @@ public class AdminServiceImpl implements AdminService {
     @Resource
     private AdminMapper adminMapper;
 
-    @Override
-    public ResponseEntity<Integer> deleteByPrimaryKey(Integer id, String updateBy) {
-        return ResponseEntityUtil.success(adminMapper.deleteByPrimaryKey(id, updateBy));
-    }
+//    @Override
+//    public ResponseEntity<Integer> deleteByPrimaryKey(Integer id, String updateBy) {
+//        return ResponseEntityUtil.success(adminMapper.deleteByPrimaryKey(id, updateBy));
+//    }
 
     @Override
     public ResponseEntity<Integer> insertSelective(Admin record) {
@@ -93,14 +93,9 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public ResponseEntity<Integer> selectCount() {
-        return ResponseEntityUtil.success(adminMapper.selectCount());
-    }
-
-    @Override
     public ResponseEntity<Integer> updateByPrimaryKeySelective(Admin record) {
         Admin validResponse = adminMapper.selectByPhone(record.getPhone());
-        if (validResponse != null && validResponse.getId() != record.getId()) {
+        if (validResponse != null && !validResponse.getId().equals(record.getId())) {
             return ResponseEntityUtil.fail(Errors.USER_MOBILE_EXISTS);
         }
         return ResponseEntityUtil.success(adminMapper.updateByPrimaryKeySelective(record));

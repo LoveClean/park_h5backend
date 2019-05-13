@@ -1,12 +1,13 @@
 package com.springboot.framework.dao.entity;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Table(name = "sys_admin")
 public class Admin implements Serializable {
-    /*登录Token*/
-    private String accessToken;
-
+    @Id
     private Integer id;
 
     private String account;
@@ -26,6 +27,8 @@ public class Admin implements Serializable {
     private Date updateDate;
 
     private Byte status;
+    /*登录Token*/
+    private String accessToken;
 
     public Admin() {
     }

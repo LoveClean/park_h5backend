@@ -26,11 +26,11 @@ public class AdminController extends BaseController {
     @Resource
     private RedisService redisService;
 
-    @ApiOperation(value = "删除管理员", notes = "删除管理员")
-    @DeleteMapping(value = "deleteByPrimaryKey")
-    public ResponseEntity<Integer> deleteByPrimaryKey(@RequestParam Integer id, HttpServletRequest request) {
-        return adminService.deleteByPrimaryKey(id, super.getSessionUser(request).getAccount());
-    }
+//    @ApiOperation(value = "删除管理员", notes = "删除管理员")
+//    @DeleteMapping(value = "deleteByPrimaryKey")
+//    public ResponseEntity<Integer> deleteByPrimaryKey(@RequestParam Integer id, HttpServletRequest request) {
+//        return adminService.deleteByPrimaryKey(id, super.getSessionUser(request).getAccount());
+//    }
 
     @ApiOperation(value = "新增管理员", notes = "新增管理员")
     @PostMapping(value = "insertSelective")
