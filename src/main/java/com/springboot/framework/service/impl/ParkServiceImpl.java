@@ -10,6 +10,7 @@ import com.springboot.framework.dao.mapper.AreaMapper;
 import com.springboot.framework.dao.mapper.ConnectionMapper;
 import com.springboot.framework.dao.mapper.ParkMapper;
 import com.springboot.framework.service.ParkService;
+import com.springboot.framework.util.PageUtil;
 import com.springboot.framework.util.ResponseEntity;
 import com.springboot.framework.util.ResponseEntityUtil;
 import com.springboot.framework.vo.ParkVO;
@@ -39,29 +40,20 @@ public class ParkServiceImpl implements ParkService {
     public PageResponseBean selectList(Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<Park> parkList = parkMapper.selectList();
-        List<ParkVO> parkVOList = Lists.newArrayList();
-        for (Park park : parkList) {
-            Area area = areaMapper.selectByAreaCode(park.getLocation());
-            ParkVO parkVO = new ParkVO(park, area);
-            parkVOList.add(parkVO);
-        }
-        PageInfo pageInfo = new PageInfo(parkList);
-        pageInfo.setList(parkVOList);
-        PageResponseBean page = new PageResponseBean<Park>(pageInfo);
-        page.setCode(0);
-        page.setHttpStatus(200);
-        return page;
+//        List<ParkVO> parkVOList = Lists.newArrayList();
+//        for (Park park : parkList) {
+//            Area area = areaMapper.selectByAreaCode(park.getLocation());
+//            ParkVO parkVO = new ParkVO(park, area);
+//            parkVOList.add(parkVO);
+//        }
+//        return PageUtil.page(parkList,parkVOList);
+        return PageUtil.page(parkList);
     }
 
     @Override
     public PageResponseBean selectListByLocation(Integer pageNum, Integer pageSize, String location) {
         PageHelper.startPage(pageNum, pageSize);
         List<Park> parkList = parkMapper.selectListByLocation(location);
-        PageInfo pageInfo = new PageInfo(parkList);
-        pageInfo.setList(parkList);
-        PageResponseBean page = new PageResponseBean<Park>(pageInfo);
-        page.setCode(0);
-        page.setHttpStatus(200);
-        return page;
+        return PageUtil.page(parkList);
     }
 }

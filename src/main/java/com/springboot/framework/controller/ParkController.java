@@ -32,6 +32,7 @@ public class ParkController extends BaseController {
         return parkService.selectByName(name);
     }
 
+    @ACS(allowAnonymous = true)
     @ApiOperation(value = "查看列表", notes = "查看列表")
     @GetMapping(value = "selectList")
     public PageResponseBean selectList(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
