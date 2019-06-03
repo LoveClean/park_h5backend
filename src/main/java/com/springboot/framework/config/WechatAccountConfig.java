@@ -55,4 +55,9 @@ public class WechatAccountConfig {
      * 微信模版id
      */
     private Map<String, String> templateId;
+
+    /**
+     * url
+     */
+    private String url;
 }

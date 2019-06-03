@@ -25,7 +25,7 @@ import java.util.*;
 @Api(tags = {"微信测试"}, produces = "application/json")
 @RestController
 @RequestMapping("/wechat/")
-public class WechatController{
+public class WechatController {
 
 //    @Resource
 //    private WxMpService wxMpService;
@@ -51,11 +51,11 @@ public class WechatController{
 //    private final String applyPage = "pages/promotion/applyLoan/applyLoan";
 //    private final String identity = "pages/identity/identity";
 
-    /**
-     *
-     * @param type 授权完成后以及获取到openid后的跳转页面
-     * @return
-     */
+//    /**
+//     *
+//     * @param type 授权完成后以及获取到openid后的跳转页面
+//     * @return
+//     */
 //    @ACS(allowAnonymous = true)
 //    @ApiOperation(value = "",notes = "")
 //    @GetMapping("/authorize")
@@ -71,12 +71,12 @@ public class WechatController{
 //        return "redirect:" + redirectUrl;
 //    }
 
-    /**
-     * 获取access token 以及 openid
-     * @param code
-     * @param state
-     * @return
-     */
+//    /**
+//     * 获取access token 以及 openid
+//     * @param code
+//     * @param state
+//     * @return
+//     */
 //    @ACS(allowAnonymous = true)
 //    @ApiOperation(value = "as",notes = "as")
 //    @GetMapping("/userInfo")
@@ -134,13 +134,14 @@ public class WechatController{
     @ACS(allowAnonymous = true)
     @ApiOperation(value = "获取微信jssdk配置", notes = "获取微信jssdk配置")
     @GetMapping(value = "config")
-    public Map<String, String> getWeixinApiConfig(@RequestParam("url") String url) throws Exception {
+    public Map<String, String> getWeixinApiConfig() throws Exception {
+        String url = wechatAccountConfig.getUrl();
         //获取ticket
         String jsapi_ticket = weixinUtil.getWeiXinTicket();
 
         Map<String, String> ret = weixinSign.sign(jsapi_ticket, url);
 
-        ret.put("appId",wechatAccountConfig.getMpAppId());
+        ret.put("appId", wechatAccountConfig.getMpAppId());
 
         return ret;
     }

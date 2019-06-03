@@ -18,6 +18,7 @@ app:
 wechat:
   mpAppId: wx17b1cc5b8a29ad16
   mpAppSecret: e92bbe7fbe903ca60718a576fd73007e
+  url: http://www.yuanfudashi.com/
 
 # 对象存储配置
 obs:
